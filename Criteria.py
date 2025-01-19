@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 
+st.set_page_config(layout="wide")
+
 about_page= st.Page(
     page= "Criteria.py",
     title= "Criteria Calculator",
