@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
@@ -11,7 +13,7 @@ about_page= st.Page(
 )
 
 # setup page header
-st.title('Criteria Calculator', anchor=False)
+st.title('Technical Criteria Simulator', anchor=False)
 # text_page_header= """
 #     <div dir= "rtl">
 #     <h1>حاسبة تصنيف المقاولين</h1>
@@ -96,73 +98,67 @@ with col_output:
         st.write(f"Total Score: {total_score} points")
         st.write(f"Category: {category}")
 
-import streamlit as st
-import streamlit.components.v1 as components
+
+st.divider()
+
+col_tabs, col_agent= st.columns([0.7, 0.3])
 
 
+with col_tabs:
 
-import streamlit as st
+    tab1, tab2, tab3 = st.tabs(['Instructions',"AI Recommendations", "Consultant"])
 
-tab1, tab2, tab3 = st.tabs(['Instructions',"AI Recommendations", "Consultant"])
+    with tab1:
+        # RTL text using HTML in Streamlit
+        # rtl_text= """
+        # <div dir= "rtl">
+        # <h2>تصنيف النتيجة</h2>
+        # <ul>
+        # <li><b>ضعيف</b>: النتيجة أقل من 18.5</li>
+        # <li><b>طبيعي</b>: النتيجة بين 18.5 و 24.9</li>
+        # <li><b>زائد</b>: النتيجة بين 25 و 29.9</li>
+        # <li><b>خطير</b>: النتيجة أكثر من 30</li>
+        # </ul>
+        # </div>
+        # """
 
-with tab1:
-    # RTL text using HTML in Streamlit
-    # rtl_text= """
-    # <div dir= "rtl">
-    # <h2>تصنيف النتيجة</h2>
-    # <ul>
-    # <li><b>ضعيف</b>: النتيجة أقل من 18.5</li>
-    # <li><b>طبيعي</b>: النتيجة بين 18.5 و 24.9</li>
-    # <li><b>زائد</b>: النتيجة بين 25 و 29.9</li>
-    # <li><b>خطير</b>: النتيجة أكثر من 30</li>
-    # </ul>
-    # </div>
-    # """
+        intructions_text= """
+        <div>
+        <h3>Score Categories</h3>
+        <h4>Determine the score ranges that correspond to each category. For example, if the maximum possible score is 100 (80 from basic criteria + 20 from additional criteria), you might categorize the scores as follows:</h4>
+        <ul>
+        <li><b>Excellent</b>: 81-100</li>
+        <li><b>Good</b>: 61-80</li>
+        <li><b>Average</b>: 41-60</li>
+        <li><b>Below Average</b>: 21-40</li>
+        <li><b>Poor</b>: 0-20</li>
+        </ul>
+        </div>
+        """
+        st.markdown(intructions_text, unsafe_allow_html=True)
 
-    intructions_text= """
-    <div>
-    <h3>Score Categories</h3>
-    <h4>Determine the score ranges that correspond to each category. For example, if the maximum possible score is 100 (80 from basic criteria + 20 from additional criteria), you might categorize the scores as follows:</h4>
-    <ul>
-    <li><b>Excellent</b>: 81-100</li>
-    <li><b>Good</b>: 61-80</li>
-    <li><b>Average</b>: 41-60</li>
-    <li><b>Below Average</b>: 21-40</li>
-    <li><b>Poor</b>: 0-20</li>
-    </ul>
-    </div>
-    """
-    st.markdown(intructions_text, unsafe_allow_html=True)
+        
+    with tab2:
+        # HTML content
+        html_string = """
+        <iframe src="https://copilotstudio.microsoft.com/environments/Default-eb90203d-ff63-4590-a567-64b68f6f4f9d/bots/cr6fb_websiteQACopilot/webchat?__version__=2" width="700" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+        """
+        # Embed the iframe
+        components.html(html_string, height=500)
+
 
     
-with tab2:
-    # HTML content
-    html_string = """
-    <iframe src="https://copilotstudio.microsoft.com/environments/Default-eb90203d-ff63-4590-a567-64b68f6f4f9d/bots/cr6fb_websiteQACopilot/webchat?__version__=2" width="700" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-    """
-    # Embed the iframe
-    components.html(html_string, height=500)
-
-with tab3:
-
-    html_content_iframe = """
-    <iframe allow="join-ad-interest-group" data-tagging-id="AW-864381662" data-load-time="1737534024462" height="0" width="0" src="https://td.doubleclick.net/td/rul/864381662?random=1737534024425&amp;cv=11&amp;fst=1737534024425&amp;fmt=3&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be51l0v888918826za200zb9105249181&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=102067555~102067808~102081485~102123607~102308675&amp;u_w=1920&amp;u_h=1080&amp;url=https%3A%2F%2Fstudio.d-id.com%2Fagents%2Fshare%3Fid%3Dagt_WIQbwJKJ%26utm_source%3Dcopy%26key%3DWVhWMGFEQjhOalExTnpkaE16STFNak0yTW1SaE1UZGhPREZqTTJaaU9uZFFZMmt5U1Y5Q2VWaGxRa1V3VEVobGJFOVJkUT09&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=D-ID%20Creative%20Reality%20Studio&amp;did=dZTQ1Zm&amp;gdid=dZTQ1Zm&amp;npa=0&amp;pscdl=noapi&amp;auid=1363006706.1730965553&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B131.0.6778.265%7CChromium%3B131.0.6778.265%7CNot_A%2520Brand%3B24.0.0.0&amp;uamb=0&amp;uam=&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;fledge=1&amp;data=event%3Dgtag.config" style="display: none; visibility: hidden;"></iframe>
-    """
-    # Using Streamlit components to render custom HTML
-    components.html(html_content_iframe, height=600)  # Adjust height as necessary
+with col_agent:
     
-
     html_content_scripts = """
-    <div id="agent-container" style="height: 500px;"> <!-- You can adjust container settings -->
-    <!-- Your script will target this div based on its settings -->
-    </div>
-    <script type="module"
-        src="https://agent.d-id.com/v1/index.js"
-        data-name="did-agent"
-        data-mode="fabio"
-        data-client-key="YourClientKey"  # Make sure to keep your keys secure
-        data-agent-id="YourAgentID"
-        data-monitor="true">
+    <script
+    type="module"
+    src="https://agent.d-id.com/v1/index.js"
+    data-name="did-agent"
+    data-mode="fabio"
+    data-client-key="YXV0aDB8NjQ1NzdhMzI1MjM2MmRhMTdhODFjM2ZiOndQY2kySV9CeVhlQkUwTEhlbE9RdQ=="
+    data-agent-id="agt_WIQbwJKJ"
+    data-monitor="true">
     </script>
     """
 
