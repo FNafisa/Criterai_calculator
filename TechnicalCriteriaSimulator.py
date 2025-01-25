@@ -6,8 +6,8 @@ import streamlit.components.v1 as components
 st.set_page_config(layout="wide")
 
 about_page= st.Page(
-    page= "Criteria.py",
-    title= "Criteria Calculator",
+    page= "TechnicalCriteriaSimulator.py",
+    title= "Technical Criteria Simulator",
     icon=":material/account_circle:",
     default=True
 )
