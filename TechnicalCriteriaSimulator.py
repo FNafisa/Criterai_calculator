@@ -65,7 +65,8 @@ with col_main_fuctions:
     col_input_basic, col_input_additional, col_output= st.columns(3,gap='medium')
     # INPUT fields for basic criteria
     with col_input_basic:
-        st.subheader('Basic Criteria (Maximum 80 points)', anchor= False)
+        st.subheader('Basic Criteria', anchor= False)
+        st.write('(Maximum 80 points)')
         engineers_percentage = st.number_input('Percentage of Engineers in the company (%)', min_value=0.0, max_value=100.0, step=0.01,
                                         help=criteria_explanations['engineers_percentage'])
         technicians_percentage = st.number_input('Percentage of Technicians in the company (%)', min_value=0.0, max_value=100.0, step=0.01,
@@ -76,7 +77,8 @@ with col_main_fuctions:
                                                 help=criteria_explanations['technicians_experience'])
     # INPUT fields for additional criteria
     with col_input_additional:
-        st.subheader('Additional Criteria (Maximum 20 points)')
+        st.subheader('Additional Criteria')
+        st.write('(Maximum 20 points)')
         saudis_percentage = st.number_input('Percentage of Saudi employees (%)', min_value=0.0, max_value=100.0, step=0.01,
                                         help=criteria_explanations['saudis_percentage'])
         saudi_engineers_percentage = st.number_input('Percentage of Saudi Engineers (%)', min_value=0.0, max_value=100.0, step=0.01,
