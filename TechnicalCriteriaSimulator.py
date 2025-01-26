@@ -21,7 +21,7 @@ import requests
 from io import BytesIO
 
 # Load the image from the web
-response = requests.get("https://ournews.sa/wp-content/uploads/2021/10/2-2.jpg")
+response = requests.get("https://muqawil.org/muqawil-theme/images/footer-logo.png")
 image = Image.open(BytesIO(response.content))
 
 # Display image next to the title
